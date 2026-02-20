@@ -38,7 +38,7 @@ if (!fs.existsSync(uploadsDir)) {
 app.use('/uploads', express.static(uploadsDir));
 
 // Serve frontend static files
-app.use(express.static(path.join(__dirname, '..', 'Food_share')));
+app.use(express.static(path.join(__dirname, '..')));
 
 // API Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -53,7 +53,7 @@ app.get('/api/health', (req, res) => {
 
 // Serve frontend for non-API routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'Food_share', 'index1.html'));
+  res.sendFile(path.join(__dirname, '..', 'index1.html'));
 });
 
 // Socket.IO connection handling
